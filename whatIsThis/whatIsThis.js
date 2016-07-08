@@ -149,33 +149,36 @@ var confusing = {
 // * Problem 11
 // whatIsThis.apply(trickyTricky);
 // * "this" is ...
-  //trickeyTrickey as an array or array-like object
+  //trickeyTrickey as an array-like object
 // * because ...
-  //when .apply() is used on a function, it turns whatever 'this' is set to be, in this case, trickey, into an array or an array-like array
+  //when .apply() is used on a function, it turns whatever 'this' is set to be (in this case, trickey) into an array or an array-like object.
 
 
 
 // * Problem 12
-whatIsThis.apply(confusing, ['nice', 'job']);
+// whatIsThis.apply(confusing, ['nice', 'job']);
 // * "this" is ...
+		//confusing object
 // * because ...
-
+	//this is the confusing object because apply was used and called the confusing object. this takes the scope away from the 'this' in the whatIsThis function, and puts it on 'confusing'. 'nice' and 'job' both show up because they are the arguments of the whatIsThis function. this does NOT become scoped to the window, rather, it's that 'this'now gets scoped to 'confusing'
 
 
 
 // * Problem 13
 // whatIsThis.apply(confusing, 'nice', 'job');
 // * "this" is ...
+		// error
 // * because ...
-
+		//the syntax is wrong and the apply method can't change the scope of 'this' to the confusing object if the arguments aren't applied correctly to the whatIsThis function
 
 
 
 // * Problem 14
 // inAFunction('what will', 'happen?');
 // * "this" is ...
+			//window object
 // * because ...
-
+		//'this' is scoped to the window object because the function is on the window. so the 'this' refers to the function that is globally scoped
 
 
 
@@ -183,15 +186,16 @@ whatIsThis.apply(confusing, ['nice', 'job']);
 // inAFunction.test3('A', 'B');
 // * "this" is ...
 // * because ...
-
+// ????????????????????????????????
 
 
 
 // * Problem 16
 // var newObject = new inAFunction('what will', 'happen?');
 // * "this" is ...
+		//the window object
 // * because ...
-
+		//since you're creating a new object, and that object is globally scoped? (aka it's not in any functions or methods or anything...)...it's just on the window.
 
 
 
@@ -200,19 +204,22 @@ whatIsThis.apply(confusing, ['nice', 'job']);
 // newObject.test3('C', 'D');
 // * "this" is ...
 // * because ...
-
+// ??????????????????????????????????????????????
 
 
 
 // * Problem 18
-// inAnObject.test1.call(trickyTricky, 'face', 'book');
+inAnObject.test1.call(trickyTricky, 'face', 'book');
 // * "this" is ...
+		//trickeyTrickey object
 // * because ...
-
+		//with the call method, 'this' refers to the current object in its paramters. 
 
 
 
 // * Problem 19
 // inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']);
 // * "this" is ...
+			//confusing object
 // * because ...
+		//just the confusing object because the apply method scopes 'this' to whatever it's parameter is set to (in this case, the confusing object)

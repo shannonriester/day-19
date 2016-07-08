@@ -209,11 +209,11 @@ var confusing = {
 
 
 // * Problem 18
-inAnObject.test1.call(trickyTricky, 'face', 'book');
+// inAnObject.test1.call(trickyTricky, 'face', 'book');
 // * "this" is ...
 		//trickeyTrickey object
 // * because ...
-		//with the call method, 'this' refers to the current object in its paramters. 
+		//with the call method, 'this' refers to the current object in its paramters.
 
 
 

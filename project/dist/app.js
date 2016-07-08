@@ -6,7 +6,7 @@ function Card(suit, val){
 }
 var playingCard = new Card('hearts', 'ace');
 
-console.log(playingCard);
+// console.log(playingCard);
 
 //The playing card should keep track of its suit and value (Ace, 2, 3, ... Jack, Queen, King).
 
@@ -21,23 +21,25 @@ function Dice(){
 }
 
 var myDice = new Dice();
-console.log(myDice.roll());
+// console.log(myDice.roll());
 
 
-function getProbabilities(){
+function getProbabilities(timesRolled){
   //make it = new Dice();
   var firstDice = new Dice();
   var secondDice = new Dice();
-  var result = [0,0,0,0,0,0,0,0,0,0,0];
+  var resultArr = [0,0,0,0,0,0,0,0,0,0,0];
 
-  for (var i=0; i < 1000; i++) {
+  //roll the dice 1000 times --for loop
+  for (var i=0; i < timesRolled; i++) {
     var firstRollVal = firstDice.roll();
     var secondRollVal = secondDice.roll();
     var sum = firstRollVal + secondRollVal;
 
-    result[sum-2]++;
-    console.log(result, '= result');
+    resultArr[sum-2]++;
   }
+  return resultArr;
 }
 
-var result = getProbabilities();
+var result = getProbabilities(1000);
+console.log(result);
